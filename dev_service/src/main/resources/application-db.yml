@@ -1,0 +1,53 @@
+#default 공통설정
+server:
+  port: 8080
+spring:
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "db-local"
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        hbm2ddl:
+          auto:
+  datasource:
+    url: jdbc:h2:mem:good
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+---
+spring:
+  config:
+    activate:
+      on-profile: "db-dev"
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+        hbm2ddl:
+          auto: create-drop
+    defer-datasource-initialization: true
+    database: mysql
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/project_service?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
+    username: root
+    password: dk!dlvhs1507.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+
