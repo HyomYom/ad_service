@@ -5,7 +5,10 @@ import com.pagooo.dev_service.entity.user.User;
 import com.pagooo.dev_service.entity.user.dto.Sign;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
+
+@Component
 @RequiredArgsConstructor
 public class MyMapper {
     private final ModelMapper modelMapper;
