@@ -6,4 +6,4 @@ spring:
     include:
       - db
     active:
-      - local
+      - dev
